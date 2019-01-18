@@ -187,7 +187,7 @@ public class TokenQueue {
             return remainder();
         }
     }
-    
+
     public String consumeToIgnoreCase(String seq) {
         int start = pos;
         String first = seq.substring(0, 1);

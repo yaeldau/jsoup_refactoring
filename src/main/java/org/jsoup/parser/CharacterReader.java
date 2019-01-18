@@ -176,10 +176,9 @@ public final class CharacterReader {
      * @return the chars read
      */
     public String consumeTo(char c) {
-        int offset = nextIndexOf(c);
-        if (offset != -1) {
-            String consumed = cacheString(charBuf, stringCache, bufPos, offset);
-            bufPos += offset;
+        if (nextIndexOf(c) != -1) {
+            String consumed = cacheString(charBuf, stringCache, bufPos, nextIndexOf(c));
+            bufPos += nextIndexOf(c);
             return consumed;
         } else {
             return consumeToEnd();
@@ -187,10 +186,9 @@ public final class CharacterReader {
     }
 
     String consumeTo(String seq) {
-        int offset = nextIndexOf(seq);
-        if (offset != -1) {
-            String consumed = cacheString(charBuf, stringCache, bufPos, offset);
-            bufPos += offset;
+        if (nextIndexOf(seq) != -1) {
+            String consumed = cacheString(charBuf, stringCache, bufPos, nextIndexOf(seq));
+            bufPos += nextIndexOf(seq);
             return consumed;
         } else {
             return consumeToEnd();
